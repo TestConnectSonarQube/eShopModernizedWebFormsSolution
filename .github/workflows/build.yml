@@ -42,5 +42,5 @@ jobs:
         shell: powershell
         run: |
           ${{ runner.temp }}\scanner\dotnet-sonarscanner begin /k:"TestConnectSonarQube_eShopModernizedWebFormsSolution_e7fea301-a37e-4fd7-a4f6-44da9965966a" /d:sonar.token="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"
-          dotnet build
+          msbuild YourSolution.sln /t:Rebuild /p:Configuration=Release
           ${{ runner.temp }}\scanner\dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
